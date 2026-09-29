@@ -163,3 +163,36 @@ SELECT *
 FROM Courses 
 FULL JOIN UniversityDepartments
 ON Courses.DepartmentID = UniversityDepartments.DepartmentID; 
+
+--CROSS Join (semesters , classrooms) , pair everything with everything. No matching at all (no ON)
+SELECT *
+FROM Semesters
+CROSS JOIN Classrooms;
+
+----SELF Join (UniInstructors), same table , two different aliases , two separate copies 
+SELECT a.InstructorID , b.InstructorFirstName , b.InstructorLastName
+FROM UniInstructors a, UniInstructors b
+WHERE a.InstructorID = b.InstructorID;
+
+--GROUP BY with an aggregate function
+SELECT ProgramID, COUNT(*) AS NumStudents
+FROM Students
+GROUP BY ProgramID
+HAVING COUNT(*) > 10;
+
+--filtering queries using WHERE with different operators
+SELECT CourseID
+FROM Courses
+WHERE CourseName = 'data analysis';
+
+SELECT StudentID 
+FROM Students
+WHERE StudentFirstName LIKE 'J%';
+
+SELECT DepartmentID
+FROM UniversityDepartments
+WHERE DepartmentName IN ('CS' , 'CE');
+
+SELECT PaymentID, PaymentStatus , StudentID
+FROM Payments
+WHERE PaymentAmount BETWEEN 40000 AND 60000;
