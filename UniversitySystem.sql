@@ -138,3 +138,28 @@ CREATE TABLE Payments(
     StudentID INT NOT NULL,
     FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
 );
+
+--joins
+--inner join (students , enrollments)
+SELECT * 
+FROM Students 
+INNER JOIN Enrollments 
+ON  Students.StudentID = Enrollments.StudentID; 
+
+--left join(courses , instructors)
+SELECT Courses.CourseID,Courses.CourseName,UniInstructors.InstructorFirstName,UniInstructors.InstructorLastName
+FROM Courses 
+LEFT JOIN UniInstructors
+ON Courses.DepartmentID = UniInstructors.DepartmentID;
+
+--right join
+SELECT UniInstructors.InstructorFirstName,UniInstructors.InstructorLastName,Courses.CourseName
+FROM UniInstructors 
+RIGHT JOIN Courses
+ON UniInstructors.DepartmentID = Courses.DepartmentID;
+
+--full join (courses , departments)
+SELECT *
+FROM Courses 
+FULL JOIN UniversityDepartments
+ON Courses.DepartmentID = UniversityDepartments.DepartmentID; 
