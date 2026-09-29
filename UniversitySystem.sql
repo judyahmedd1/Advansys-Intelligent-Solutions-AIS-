@@ -131,7 +131,7 @@ CREATE TABLE Students_Enrollments(
 
 
 CREATE TABLE Payments(
-    PaymentID INT NOT NULL,
+    PaymentID INT IDENTITY(1,1) PRIMARY KEY,
     PaymentAmount DECIMAL(10,2) NOT NULL,
     PaymentDate DATETIME NOT NULL DEFAULT GETDATE(), 
     PaymentStatus VARCHAR(20)NOT NULL,
