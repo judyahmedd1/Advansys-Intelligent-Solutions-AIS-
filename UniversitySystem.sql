@@ -24,6 +24,9 @@ CREATE TABLE UniversityDepartments (
 ALTER TABLE UniversityInstructors ADD CONSTRAINT FK_Instructors_Departments FOREIGN KEY(DepartmentID) REFERENCES UniversityDepartments(DepartmentID);
 ALTER TABLE UniversityDepartments ADD CONSTRAINT FK_Departments_Instructors FOREIGN KEY(HeadInstructorID) REFERENCES UniversityInstructors(InstructorID);
 
+-- Indexing
+CREATE INDEX Idx_Instructor_Hire_Date
+ON UniInstructors (InstructorHireDate);
 
 CREATE TABLE Courses (
     CourseID INT IDENTITY(1,1) PRIMARY KEY,
