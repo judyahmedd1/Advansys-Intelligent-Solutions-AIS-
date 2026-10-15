@@ -6,6 +6,7 @@ namespace universitysytem.Controllers;
 public class PaymentsController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
+
     public PaymentsController(ApplicationDbContext context)
     {
         _context = context;
